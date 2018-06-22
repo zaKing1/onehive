@@ -38,25 +38,25 @@ async def help(ctx):
     em.set_thumbnail(url=ctx.me.avatar_url)
     msg = await ctx.send(embed=em)
   
-@commands.cooldown(1, 5, commands.BucketType.user)  
+
+ @commands.cooldown(1, 5, commands.BucketType.user)
 @bot.command()
 async def help2(ctx):
     """Help2"""
     em = discord.Embed(title="".format(ctx.guild.name), description="", color=discord.Colour.blue())
     em.set_author(name=" Help 2")
-    em.add_field(name="**Help2**",value='Shows this message', inline=False)
-    em.add_field(name="**playerinfo @<member>**", value="""See somebody`s info
+    em.add_field(name="Help2",value='Shows this message', inline=False)
+    em.add_field(name="playerinfo @<member>", value="""See somebody`s info
 [NOTE: This works by: |pinfo [id/nickname/name/@name]""", inline=False)
-    em.add_field(name="**serverinfo**", value="""Get all the informations(In the server)
+    em.add_field(name="serverinfo", value="""Get all the informations(In the server)
 [NOTE: |sinfo works too]""", inline=False)
-    em.add_field(name="**botinfo**", value="""Get all the bot information
+    em.add_field(name="botinfo", value="""Get all the bot information
 [NOTE: |binfo works too]""", inline=False)
-    em.add_field(name="**lenny**", value='Just a lenny face', inline=False)
-    em.add_field(name="**respect**", value='Pay #respect', inline=False)
-    em.add_field(name="**support**", value='Returns the support server', inline=False)
+    em.add_field(name="lenny", value='Just a lenny face', inline=False)
+    em.add_field(name="respect", value='Pay #respect', inline=False)
+    em.add_field(name="sal", value='Returns a hi', inline=False)
     em.set_thumbnail(url=ctx.me.avatar_url)
     msg = await ctx.send(embed=em)
- 
 
 
 @bot.listen()
