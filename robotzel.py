@@ -39,7 +39,7 @@ async def help(ctx):
     msg = await ctx.send(embed=em)
   
 
- @commands.cooldown(1, 5, commands.BucketType.user)
+@commands.cooldown(1, 5, commands.BucketType.user)
 @bot.command()
 async def help2(ctx):
     """Help2"""
