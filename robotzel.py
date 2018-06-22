@@ -281,7 +281,9 @@ async def binfo(ctx):
     em.set_thumbnail(url=ctx.me.avatar_url)
     msg = await ctx.send(embed=em)
         
-
+@bot.command()
+async def sal(ctx):
+    await ctx.send('Salut si tie!')
 
 
 bot.run(os.getenv("TOKEN"))
