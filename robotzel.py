@@ -8,7 +8,7 @@ import os
 
 
 logging.basicConfig(level='INFO')
-bot = commands.Bot(command_prefix='e?')
+bot = commands.Bot(command_prefix='r!')
 bot.remove_command('help')
 
     
@@ -20,7 +20,7 @@ async def on_error(message, event, *args, **kwargs):
 @bot.listen()
 async def on_ready():
           print('Logging in as', bot.user.name)
-          await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name='e?help'))
+          await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name='r!help'))
                   
 
 @commands.cooldown(1, 5, commands.BucketType.user)  
@@ -28,7 +28,7 @@ async def on_ready():
 async def help(ctx):
     """Help"""
     em = discord.Embed(title="".format(ctx.guild.name), description="", color=discord.Colour.blue())
-    em.set_author(name="Empero Help")
+    em.set_author(name="Help")
     em.add_field(name="**help**", value='Shows this message', inline=False)
     em.add_field(name="**say**", value='Make the bot say whatever you want', inline=False)
     em.add_field(name="**ping**", value='Check the bot latency', inline=False)
@@ -43,7 +43,7 @@ async def help(ctx):
 async def help2(ctx):
     """Help2"""
     em = discord.Embed(title="".format(ctx.guild.name), description="", color=discord.Colour.blue())
-    em.set_author(name="Empero Help 2")
+    em.set_author(name=" Help 2")
     em.add_field(name="**Help2**",value='Shows this message', inline=False)
     em.add_field(name="**playerinfo @<member>**", value="""See somebody`s info
 [NOTE: This works by: |pinfo [id/nickname/name/@name]""", inline=False)
@@ -62,7 +62,7 @@ async def help2(ctx):
 @bot.listen()
 async def on_message(message : discord.Message):
     if bot.user.mentioned_in(message):
-        await message.channel.send(':sleeping: | You woke me up :( . My prefix is `e?` , for a list of commands type `e?help`', delete_after=10)
+        await message.channel.send(':sleeping: | You woke me up :( . My prefix is `r!` , for a list of commands type `r!help`', delete_after=10)
 
 @bot.listen()
 async def on_command_error(ctx, error):
@@ -134,30 +134,18 @@ async def avatar(ctx, member: discord.Member=None):
 
 
 
-@bot.command()
-async def setlistening(ctx):
-    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=message))
 
 
 
 
 
-@bot.listen()
-async def on_message(message):
-    if message.content.lower() == 'e?support' and message.author != bot.user:
-        await message.channel.send('The support server is: https://discord.gg/GF3RWsd')
 
 @commands.cooldown(1, 5, commands.BucketType.user)
 @bot.command()
 async def invite(ctx):
     """Gives you the BOT invite link."""
-    await ctx.send("Invite the BOT here: https://discordapp.com/api/oauth2/authorize?client_id=459000712538357760&permissions=0&scope=bot")
+    await ctx.send("Invite the BOT here: https://discordapp.com/api/oauth2/authorize?client_id=458556519278051329&permissions=8&scope=bot")
 
-@commands.cooldown(1, 5, commands.BucketType.user)
-@bot.command()
-async def support(ctx):
-    """Get the lenny face"""
-    await ctx.send("")
 
 @commands.cooldown(1, 5, commands.BucketType.user)
 @bot.command()
@@ -268,7 +256,7 @@ async def botinfo(ctx):
     em.add_field(name="Prefix", value=ctx.bot.command_prefix, inline=True)
     em.add_field(name="Made with", value='Python 3.6.5', inline=True)
     em.add_field(name="Tag:", value=ctx.me.discriminator, inline=True)
-    em.add_field(name="Creator", value='<@404708655578218511>', inline=True)
+    em.add_field(name="Creator", value='<@329600678211354624>', inline=True)
     em.add_field(name="Created at", value=ctx.bot.user.created_at, inline=True)
     em.set_thumbnail(url=ctx.me.avatar_url)
     msg = await ctx.send(embed=em)
@@ -288,7 +276,7 @@ async def binfo(ctx):
     em.add_field(name="Prefix", value=ctx.bot.command_prefix, inline=True)
     em.add_field(name="Made with", value='Python 3.6.5', inline=True)
     em.add_field(name="Tag:", value=ctx.me.discriminator, inline=True)
-    em.add_field(name="Creator", value='<@404708655578218511>', inline=True)
+    em.add_field(name="Creator", value='<@329600678211354624>', inline=True)
     em.add_field(name="Created at", value=ctx.bot.user.created_at, inline=True)
     em.set_thumbnail(url=ctx.me.avatar_url)
     msg = await ctx.send(embed=em)
