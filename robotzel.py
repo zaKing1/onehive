@@ -15,7 +15,7 @@ bot.remove_command('help')
     
 @commands.cooldown(1, 5, commands.BucketType.user)  
 @bot.command()
-async def help(ctx):
+async def help3(ctx):
     """Help"""
     em = discord.Embed(title="".format(ctx.guild.name), description="", color=discord.Colour.blue())
     em.set_author(name="Help 3")
