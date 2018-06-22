@@ -298,8 +298,9 @@ async def binfo(ctx):
 async def sal(ctx):
     await ctx.send('Salut si tie!')
     
-    
+@commands.cooldown(1, 5, commands.BucketType.user)   
 @bot.command()
+@commands.has_permissions(ban_members=True)
 async def ban(ctx, member: discord.Member = None):
     if member is None:
         await ctx.send("Please provide a user to ban")
@@ -308,7 +309,10 @@ async def ban(ctx, member: discord.Member = None):
         await ctx.send(f'{member} just got banned.')
 
 
+      
+@commands.cooldown(1, 5, commands.BucketType.user) 
 @bot.command()
+@commands.has_permissions(kick_members=True)
 async def kick(ctx, member: discord.Member = None):
     if member is None:
         await ctx.send("Please provide a user to kick")
