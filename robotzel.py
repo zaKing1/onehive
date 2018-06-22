@@ -11,6 +11,19 @@ logging.basicConfig(level='INFO')
 bot = commands.Bot(command_prefix='r!')
 bot.remove_command('help')
 
+   
+    
+@commands.cooldown(1, 5, commands.BucketType.user)  
+@bot.command()
+async def help(ctx):
+    """Help"""
+    em = discord.Embed(title="".format(ctx.guild.name), description="", color=discord.Colour.blue())
+    em.set_author(name="Help 3")
+    em.add_field(name="**help3**", value='Shows this message', inline=False)
+    em.add_field(name="**kick**", value='Kick a member (works only if you have the Kick Members perm.)', inline=False)
+    em.add_field(name="**ban**", value='Ban a member (works only if you have the Ban Members perm.)', inline=False)
+    em.set_thumbnail(url=ctx.me.avatar_url)
+    msg = await ctx.send(embed=em)
     
 @bot.listen()
 async def on_error(message, event, *args, **kwargs):
@@ -285,6 +298,23 @@ async def binfo(ctx):
 async def sal(ctx):
     await ctx.send('Salut si tie!')
     
+    
+@bot.command()
+async def ban(ctx, member: discord.Member = None):
+    if member is None:
+        await ctx.send("Please provide a user to ban")
+    if member != ctx.author:
+        await ctx.guild.kick(member)
+        await ctx.send(f'{member} just got banned.')
+
+
+@bot.command()
+async def kick(ctx, member: discord.Member = None):
+    if member is None:
+        await ctx.send("Please provide a user to kick")
+    if member != ctx.author:
+        await ctx.guild.kick(member)
+        await ctx.send(f'{member} just got kicked.')
     
 
 
