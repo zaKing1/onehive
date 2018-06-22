@@ -284,6 +284,11 @@ async def binfo(ctx):
 @bot.command()
 async def sal(ctx):
     await ctx.send('Salut si tie!')
+    
+    
+@bot.command()
+async def kick(ctx)
+          await ctx.kick(ctx.message.author)
 
 
 bot.run(os.getenv("TOKEN"))
