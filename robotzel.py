@@ -287,8 +287,8 @@ async def sal(ctx):
     
     
 @bot.command()
-async def kick(ctx)
-          await ctx.kick(ctx.message.author)
+async def kick(ctx):
+    await ctx.guild.kick(ctx.message.author)
 
 
 bot.run(os.getenv("TOKEN"))
