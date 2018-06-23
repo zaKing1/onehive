@@ -22,6 +22,7 @@ async def help3(ctx):
     em.add_field(name="**help3**", value='Shows this message', inline=False)
     em.add_field(name="**kick**", value='Kick a member (works only if you have the Kick Members perm.)', inline=False)
     em.add_field(name="**ban**", value='Ban a member (works only if you have the Ban Members perm.)', inline=False)
+    em.add_field(name="**ban**", value='Sends a message to all the members in a group (Owner only)', inline=False)
     em.set_thumbnail(url=ctx.me.avatar_url)
     msg = await ctx.send(embed=em)
     
@@ -36,6 +37,21 @@ async def on_ready():
           await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name='r!help'))
                   
 
+@commands.is_owner()
+@bot.command()
+async def mass(ctx, *, message):
+    async def maybe_send(member):
+        try:
+            await member.send(message)
+        finally:
+            await ctx.message.delete()
+
+    await asyncio.gather(*[maybe_send(m) for m in ctx.guild.members])            
+            
+            
+            
+            
+            
 @commands.cooldown(1, 5, commands.BucketType.user)  
 @bot.command()
 async def help(ctx):
