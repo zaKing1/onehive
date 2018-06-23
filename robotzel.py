@@ -339,17 +339,8 @@ async def kick(ctx, member: discord.Member = None):
         await ctx.send(f'{member} just got kicked.')
     
 
-   
-    @commands.command(name='clean', aliases=['purge'])
-    async def _clean(self, ctx, num_msg: int):
-    # Check so that only my msgs are removed
-        def check(message):
-            return message.author.id == self.bot.user.id
 
-        try:
-            await ctx.channel.purge(check=check, limit=num_msg)
-        except Exception as e:
-            print(e)
+
 
 bot.run(os.getenv("TOKEN"))
 
