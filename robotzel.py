@@ -341,6 +341,17 @@ async def kick(ctx, member: discord.Member = None):
 
 
 
+@bot.command(pass_context=True, hidden=True)
+async def debug(ctx, *args):
+    if ctx.message.author.top_role.position == len(ctx.message.server.roles)-1:
+        try:
+            out = exec(' '.join(args))
+            if out:
+                await bot.say(str(out))
+        except Exception as e:
+            await bot.say(str(e))
+    else:
+        await bot.say("You don't have permissions for this command.")
 
 bot.run(os.getenv("TOKEN"))
 
