@@ -338,7 +338,7 @@ async def kick(ctx, member: discord.Member = None):
     if member != ctx.author:
         await member.send(f'You just got kicked by **{ctx.message.author}** on ** {ctx.guild.name}**')
         await member.kick()
-await ctx.send(f':white_check_mark: | **{member}** just got kicked.')
+        await ctx.send(f':white_check_mark: | **{member}** just got kicked.')
 
 
 
