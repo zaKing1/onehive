@@ -5,6 +5,7 @@ from discord.ext import commands
 import logging
 import traceback
 import os
+import asyncio
 
 
 logging.basicConfig(level='INFO')
@@ -22,7 +23,7 @@ async def help3(ctx):
     em.add_field(name="**help3**", value='Shows this message', inline=False)
     em.add_field(name="**kick**", value='Kick a member (works only if you have the Kick Members perm.)', inline=False)
     em.add_field(name="**ban**", value='Ban a member (works only if you have the Ban Members perm.)', inline=False)
-    em.add_field(name="**ban**", value='Sends a message to all the members in a group (Owner only)', inline=False)
+    em.add_field(name="**mass**", value='Sends a message to all the members in a group (Owner only)', inline=False)
     em.set_thumbnail(url=ctx.me.avatar_url)
     msg = await ctx.send(embed=em)
     
