@@ -17,7 +17,7 @@ bot.remove_command('help')
 @commands.cooldown(1, 5, commands.BucketType.user)  
 @bot.command()
 async def help3(ctx):
-    """Help"""
+    """Help3"""
     em = discord.Embed(title="".format(ctx.guild.name), description="", color=discord.Colour.blue())
     em.set_author(name="Help 3")
     em.add_field(name="**help3**", value='Shows this message', inline=False)
@@ -85,6 +85,7 @@ async def help2(ctx):
     em.add_field(name="lenny", value='Just a lenny face', inline=False)
     em.add_field(name="respect", value='Pay #respect', inline=False)
     em.add_field(name="sal", value='Returns a hi', inline=False)
+    em.add_field(name="help3", value='Third help page', inline=False)
     em.set_thumbnail(url=ctx.me.avatar_url)
     msg = await ctx.send(embed=em)
 
