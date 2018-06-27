@@ -11,6 +11,7 @@ import asyncio
 logging.basicConfig(level='INFO')
 bot = commands.Bot(command_prefix='r!')
 bot.remove_command('help')
+bot.load_extension("music")
 
    
     
