@@ -28,18 +28,7 @@ def load_opus_lib(opus_libs=OPUS_LIBS):
 load_opus_lib()
    
     
-@commands.cooldown(1, 5, commands.BucketType.user)  
-@bot.command()
-async def help3(ctx):
-    """Help3"""
-    em = discord.Embed(title="".format(ctx.guild.name), description="", color=discord.Colour.blue())
-    em.set_author(name="Help 3")
-    em.add_field(name="**help3**", value='Shows this message', inline=False)
-    em.add_field(name="**kick**", value='Kick a member (works only if you have the Kick Members perm.)', inline=False)
-    em.add_field(name="**ban**", value='Ban a member (works only if you have the Ban Members perm.)', inline=False)
-    em.add_field(name="**mass**", value='Sends a message to all the members in a group (Owner only)', inline=False)
-    em.set_thumbnail(url=ctx.me.avatar_url)
-    msg = await ctx.send(embed=em)
+
     
 @bot.listen()
 async def on_error(message, event, *args, **kwargs):
@@ -65,43 +54,37 @@ async def mass(ctx, *, message):
             
             
             
-            
-            
-@commands.cooldown(1, 5, commands.BucketType.user)  
+                 
 @bot.command()
 async def help(ctx):
-    """Help"""
-    em = discord.Embed(title="".format(ctx.guild.name), description="", color=discord.Colour.blue())
-    em.set_author(name="Help")
-    em.add_field(name="**help**", value='Shows this message', inline=False)
-    em.add_field(name="**say**", value='Make the bot say whatever you want', inline=False)
-    em.add_field(name="**ping**", value='Check the bot latency', inline=False)
-    em.add_field(name="**search**", value='Search something on google', inline=False)
-    em.add_field(name="**avatar**", value='Get somebody`s avatar', inline=False)
-    em.add_field(name="**help2**", value='Second help page', inline=False)
-    em.set_thumbnail(url=ctx.me.avatar_url)
-    msg = await ctx.send(embed=em)
+    await ctx.author.send("""  Robotzel commands:
+**r!say** : `Make the bot say whatever you want`
+**r!ping** : `Check the bot latency`
+**r!search** : `Search something`
+**r!avatar** : `Get a member's avatar`""")
+    await ctx.author.send("""
+**r!playerinfo @<member>** : `Get a member's informations`
+**r!serverinfo** : `Get a server's informations`
+**r!botinfo** : `Check the BOT info`
+**r!lenny** : `Returns the lenny face`
+**r!respect** : `Press F`
+**r!sal** : `Returns a hi`""")
+    await ctx.author.send("""
+**r!kick** : `Kick a member (Avaible only for members with the Kick permission)`
+**r!ban** : `Ban a member (Avaible only for members with the Ban permission)`
+**r!mass** : `Sends a message to all the members in a group (Owner only)`""")
+    await ctx.author.send("""
+**r!play** : `Play a song`
+**r!stop** : `Stops the track`
+**r!queue** : `See the following tracks`
+**r!skip** : `Plays the next song`
+**r!pause** : `Pause the track`
+**r!resume** : `Unpause the track`
+**r!join** : `Join a voice channel`""")
+    await ctx.send(f'{ctx.author.mention} , check your DMs!')
   
 
-@commands.cooldown(1, 5, commands.BucketType.user)
-@bot.command()
-async def help2(ctx):
-    """Help2"""
-    em = discord.Embed(title="".format(ctx.guild.name), description="", color=discord.Colour.blue())
-    em.set_author(name=" Help 2")
-    em.add_field(name="Help2",value='Shows this message', inline=False)
-    em.add_field(name="playerinfo @<member>", value="""See somebody`s info
-[NOTE: This works by: |pinfo [id/nickname/name/@name]""", inline=False)
-    em.add_field(name="serverinfo", value="""Get all the informations(In the server)
-[NOTE: |sinfo works too]""", inline=False)
-    em.add_field(name="botinfo", value="""Get all the bot information
-[NOTE: |binfo works too]""", inline=False)
-    em.add_field(name="lenny", value='Just a lenny face', inline=False)
-    em.add_field(name="respect", value='Pay #respect', inline=False)
-    em.add_field(name="sal", value='Returns a hi', inline=False)
-    em.add_field(name="help3", value='Third help page', inline=False)
-    em.set_thumbnail(url=ctx.me.avatar_url)
-    msg = await ctx.send(embed=em)
+
 
 
 @bot.listen()
