@@ -72,7 +72,6 @@ async def help(ctx):
     await ctx.author.send("""
 **r!kick** : `Kick a member (Avaible only for members with the Kick permission)`
 **r!ban** : `Ban a member (Avaible only for members with the Ban permission)`
-**r!mass** : `Sends a message to all the members in a group (Owner only)`""")
     await ctx.author.send("""
 **r!play** : `Play a song`
 **r!stop** : `Stops the track`
@@ -350,6 +349,15 @@ async def debug(ctx, *args):
             await bot.say(str(e))
     else:
         await bot.say("You don't have permissions for this command.")
+
+@Client.command(pass_context = True)
+async def clear(ctx, number):
+    mgs = [] #Empty list to put all the messages in the log
+    number = int(number) #Converting the amount of messages to delete to an integer
+    async for x in Client.logs_from(ctx.message.channel, limit = number):
+        mgs.append(x)
+    await Client.delete_messages(mgs)
+
 
 bot.run(os.getenv("TOKEN"))
 
