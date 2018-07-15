@@ -71,8 +71,7 @@ async def help(ctx):
 **r!sal** : `Returns a hi`""")
     await ctx.author.send("""
 **r!kick** : `Kick a member (Avaible only for members with the Kick permission)`
-**r!ban** : `Ban a member (Avaible only for members with the Ban permission)`
-+**r!mass** : `Sends a message to all the members in a group (Owner only)`""")
+**r!ban** : `Ban a member (Avaible only for members with the Ban permission)`""")
     await ctx.author.send("""
 **r!play** : `Play a song`
 **r!stop** : `Stops the track`
