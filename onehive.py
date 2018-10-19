@@ -160,7 +160,16 @@ async def avatar(ctx, member: discord.Member=None):
 
 
 
-
+@bot.command(pass_context=True)
+@commands.has_permissions(manage_messages=True)
+async def purge(ctx, channel: discord.Channel, limit: int):
+    if not ctx.message.server.me.server_permissions.manage_messages: return
+    try:
+        purge = await bot.purge_from(channel, limit=limit)
+    except discord.HTTPException:
+        return await bot.say("Incearca o cautare mai mica")
+    finally:
+        await bot.say("Au fost sterse {0} mesaje".format(len(purge)))
 
 
 
