@@ -11,7 +11,7 @@ import asyncio
 
 logging.basicConfig(level='INFO')
 bot = commands.Bot(command_prefix='oh!')
-bot.remove_command('help | OneHive | Happy Halloween')
+bot.remove_command('help')
 bot.load_extension("music")
 OPUS_LIBS = ['libopus-0.x86.dll', 'libopus-0.x64.dll', 'libopus-0.dll', 'libopus.so.0', 'libopus.0.dylib']
 
