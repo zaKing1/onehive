@@ -10,7 +10,7 @@ import asyncio
 
 
 logging.basicConfig(level='INFO')
-bot = commands.Bot(command_prefix='r!')
+bot = commands.Bot(command_prefix='oh!')
 bot.remove_command('help')
 bot.load_extension("music")
 OPUS_LIBS = ['libopus-0.x86.dll', 'libopus-0.x64.dll', 'libopus-0.dll', 'libopus.so.0', 'libopus.0.dylib']
@@ -38,7 +38,7 @@ async def on_error(message, event, *args, **kwargs):
 @bot.listen()
 async def on_ready():
           print('Logging in as', bot.user.name)
-          await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name='r!help'))
+          await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name='oh!help'))
                   
 
 @commands.is_owner()
@@ -57,29 +57,29 @@ async def mass(ctx, *, message):
                  
 @bot.command()
 async def help(ctx):
-    await ctx.author.send("""  Robotzel commands:
-**r!say** : `Make the bot say whatever you want`
-**r!ping** : `Check the bot latency`
-**r!search** : `Search something`
-**r!avatar** : `Get a member's avatar`""")
+    await ctx.author.send("""  OneHive commands:
+**oh!say** : `Make the bot say whatever you want`
+**oh!ping** : `Check the bot latency`
+**oh!search** : `Search something`
+**oh!avatar** : `Get a member's avatar`""")
     await ctx.author.send("""
-**r!playerinfo @<member>** : `Get a member's informations`
-**r!serverinfo** : `Get a server's informations`
-**r!botinfo** : `Check the BOT info`
-**r!lenny** : `Returns the lenny face`
-**r!respect** : `Press F`
-**r!sal** : `Returns a hi`""")
+**oh!playerinfo @<member>** : `Get a member's informations`
+**oh!serverinfo** : `Get a server's informations`
+**oh!botinfo** : `Check the BOT info`
+**oh!lenny** : `Returns the lenny face`
+**oh!respect** : `Press F`
+**oh!sal** : `Returns a hi`""")
     await ctx.author.send("""
-**r!kick** : `Kick a member (Avaible only for members with the Kick permission)`
-**r!ban** : `Ban a member (Avaible only for members with the Ban permission)`""")
+**oh!kick** : `Kick a member (Avaible only for members with the Kick permission)`
+**oh!ban** : `Ban a member (Avaible only for members with the Ban permission)`""")
     await ctx.author.send("""
-**r!play** : `Play a song`
-**r!stop** : `Stops the track`
-**r!queue** : `See the following tracks`
-**r!skip** : `Plays the next song`
-**r!pause** : `Pause the track`
-**r!resume** : `Unpause the track`
-**r!join** : `Join a voice channel`""")
+**oh!play** : `Play a song`
+**oh!stop** : `Stops the track`
+**oh!queue** : `See the following tracks`
+**oh!skip** : `Plays the next song`
+**oh!pause** : `Pause the track`
+**oh!resume** : `Unpause the track`
+**oh!join** : `Join a voice channel`""")
     await ctx.send(f'{ctx.author.mention} , check your DMs!')
   
 
@@ -89,7 +89,7 @@ async def help(ctx):
 @bot.listen()
 async def on_message(message : discord.Message):
     if bot.user.mentioned_in(message):
-        await message.channel.send(':sleeping: | You woke me up :( . My prefix is `r!` , for a list of commands type `r!help`', delete_after=10)
+        await message.channel.send(':sleeping: | You woke me up :( . My prefix is `oh!` , for a list of commands type `oh!help`', delete_after=10)
 
 @bot.listen()
 async def on_command_error(ctx, error):
